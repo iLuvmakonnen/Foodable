@@ -1,0 +1,45 @@
+<ion-menu [content]="content">
+
+  <ion-content class="side-menu-gradient" style="color: #ffffff !important;">
+
+  <div class="spacer" style="width: 268px; height: 21px;"></div>
+
+      <div>
+      <div id="user-header-not-logged">
+      <div class="profile-image-2">
+        <div>
+          <img src="http://hendersonandjones.com/wp-content/uploads/2014/04/placeholder_user.png" style="display: block; width: 40%; height: auto; margin-left: auto; margin-right: auto;">
+          </div>
+      </div>
+      <h2 id="menu-heading1" style="color:#FFFFFF;font-weight:300;text-align:center;">Welcome!</h2>
+      </div>
+      </div>
+
+
+    <div class="spacer" style="width: 268px; height: 30px;"></div>
+
+    <div class="new-ion-list">
+      <ion-list id="menu-list1" style="color: #ffffff !important;">
+
+        <button (click)="closeMenu();" ion-item class="item-icon-left  side-menu-item" id="menu-list-item1" class="big-font">
+          <ion-icon name="home" class="separar"></ion-icon>Home</button>
+
+        <button (click)="closeMenu();" ion-item class="item-icon-left  side-menu-item" id="menu-list-item1" class="big-font">
+          <ion-icon name="search" class="separar"></ion-icon>Search</button>
+
+        <button (click)="closeMenu();" ion-item class="item-icon-left  side-menu-item" id="menu-list-item2" class="big-font">
+          <ion-icon name="apps" class="separar"></ion-icon>Categories</button>
+
+        <button (click)="closeMenu();" ion-item class="item-icon-left  side-menu-item" id="menu-list-item4" class="big-font">
+          <ion-icon name="heart" class="separar"></ion-icon>Inivite a Friend</button>
+
+        <button (click)="closeMenu();" ion-item class="item-icon-left  side-menu-item" id="menu-list-item4" class="big-font">
+          <ion-icon name="settings" class="separar"></ion-icon>Settings</button>     
+
+      </ion-list>
+      </div>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
