@@ -1,0 +1,174 @@
+<ion-content padding-bottom class="home common-bg">
+
+  <!-- HEADER AREA -->
+  <div class="header rlt">
+    <div class="align-bottom" padding>
+      <div class="pull-left">
+        <h2 ion-text color="white">
+          <ion-icon name="ios-restaurant-outline"></ion-icon>
+          FOODABLE
+        </h2>
+        <span ion-text color="light">
+        Life can be hard, <strong>but</strong> Locating your food doesn't have to be.
+      </span>
+      </div>
+      <!-- <div class="pull-right">
+        <h1>
+          <ion-icon name="ios-sunny-outline" color="light"></ion-icon>
+        </h1>
+        <h6 ion-text no-margin color="light">
+          35<sup>o</sup>C
+        </h6>
+      </div> -->
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <div class="float-search" padding>
+    <ion-input class="card round" placeholder="Where do you want to go today?"></ion-input>
+    <button ion-button menuToggle color="white" item-left>
+      <ion-icon name="ios-menu" color="primary"></ion-icon>
+    </button>
+    <ion-buttons end>
+    </ion-buttons>
+  </div>
+  <!-- HEADER AREA -->
+
+  <!--list of restaurants-->
+  <div class="block" margin-top>
+    <div class="block-title" padding-left padding-right class="verticalSpace">
+      <div class="pull-left">
+        <ion-icon name="restaurant" color="restaurant-color"></ion-icon>
+        <span ion-text color="restaurant-color">BEST TIME TO EAT AT</span>
+      </div>
+      <div class="pull-right">
+        <span ion-text color="restaurant-color" (click)="viewAllRestaurants()">SEE ALL &gt;</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="items" padding-left padding-bottom>
+      <div class="card round" *ngFor="let restaurant of restaurants" (click)="viewRestaurant(restaurant.id)">
+        <div class="card-header" [ngStyle]="{'background-image': 'url(' + restaurant.thumb + ')'}">
+          <ion-chip>
+            <ion-icon name="ios-thumbs-up"></ion-icon>
+              <ion-label>{{ restaurant.scores[0].name }}, {{ restaurant.scores[1].name }}</ion-label>
+          </ion-chip>
+        </div>
+        <div class="padding-xs">
+          <h5>{{ restaurant.name }}</h5>
+          <div class="rating">
+            <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(restaurant.rating)"></ion-icon>
+            <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - restaurant.rating)"></ion-icon>
+            <span ion-text color="gray">{{ restaurant.reviews.length }} reviews</span>
+          </div>
+          <span ion-text color="gray">Recommended for:</span>
+          <div>
+            <div class="pull-left">
+              <span ion-text color="restaurant-color">{{ restaurant.scores[0].name }},</span>
+              <span ion-text color="restaurant-color">{{ restaurant.scores[1].name }}</span>
+            </div>
+            <div class="pull-right">
+              {{ restaurant.location.distance }} mi
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCORDING TO MOD LIST -->
+  <div class="block">
+    <div class="block-title" padding-left padding-right class="verticalSpace">
+      <div class="pull-left">
+        <ion-icon name="restaurant" color="hotel-color"></ion-icon>
+        <span ion-text color="hotel-color">ACCORDING YOUR MOD</span>
+      </div>
+      <div class="pull-right">
+        <span ion-text color="hotel-color" (click)="viewAllHotels()">SEE ALL &gt;</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="items" padding-left padding-bottom>
+      <div class="card round" *ngFor="let restaurant of restaurants" (click)="viewRestaurant(restaurant.id)">
+        <div class="card-header" [ngStyle]="{'background-image': 'url(' + restaurant.thumb + ')'}">
+          <ion-chip>
+            <ion-icon name="ios-thumbs-up"></ion-icon>
+              <ion-label>{{ restaurant.scores[0].name }}, {{ restaurant.scores[1].name }}</ion-label>
+          </ion-chip>
+        </div>
+        <div class="padding-xs">
+          <h5>{{ restaurant.name }}</h5>
+          <div class="rating">
+            <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(restaurant.rating)"></ion-icon>
+            <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - restaurant.rating)"></ion-icon>
+            <span ion-text color="gray">{{ restaurant.reviews.length }} reviews</span>
+          </div>
+          <span ion-text color="gray">Recommended for:</span>
+          <div>
+            <div class="pull-left">
+              <span ion-text color="restaurant-color">{{ restaurant.scores[0].name }},</span>
+              <span ion-text color="restaurant-color">{{ restaurant.scores[1].name }}</span>
+            </div>
+            <div class="pull-right">
+              {{ restaurant.location.distance }} mi
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ACCORDING TO WEATHER LIST -->
+   <div class="block">
+    <div class="block-title" padding-left padding-right class="verticalSpace">
+      <div class="pull-left">
+        <ion-icon name="restaurant" color="hotel-color"></ion-icon>
+        <span ion-text color="hotel-color">RESTAURANTS RECOMENDATIONS</span>
+      </div>
+      <div class="pull-right">
+        <span ion-text color="hotel-color" (click)="viewAllHotels()">SEE ALL &gt;</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="items" padding-left padding-bottom>
+      <div class="card round" *ngFor="let restaurant of restaurants" (click)="viewRestaurant(restaurant.id)">
+        <div class="card-header" [ngStyle]="{'background-image': 'url(' + restaurant.thumb + ')'}">
+          <ion-chip>
+            <ion-icon name="ios-thumbs-up"></ion-icon>
+              <ion-label>{{ restaurant.scores[0].name }}, {{ restaurant.scores[1].name }}</ion-label>
+          </ion-chip>
+        </div>
+        <div class="padding-xs">
+          <h5>{{ restaurant.name }}</h5>
+          <div class="rating">
+            <ion-icon name="md-star" color="restaurant-color" *ngFor="let star of range(restaurant.rating)"></ion-icon>
+            <ion-icon name="md-star" color="gray" *ngFor="let star of range(5 - restaurant.rating)"></ion-icon>
+            <span ion-text color="gray">{{ restaurant.reviews.length }} reviews</span>
+          </div>
+          <span ion-text color="gray">Recommended for:</span>
+          <div>
+            <div class="pull-left">
+              <span ion-text color="restaurant-color">{{ restaurant.scores[0].name }},</span>
+              <span ion-text color="restaurant-color">{{ restaurant.scores[1].name }}</span>
+            </div>
+            <div class="pull-right">
+              {{ restaurant.location.distance }} mi
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab bottom right>
+    <button  ion-fab class="fab-android"><ion-icon name="camera"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab><ion-icon name="ios-photos-outline"></ion-icon></button>
+      <button (click)="step1()" ion-fab><ion-icon name="camera"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+</ion-content>
