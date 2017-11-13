@@ -24,3 +24,4 @@ IF EXIST %script_path% (
     ECHO ERROR: Could not find 'build' script in 'cordova' folder, aborting...>&2
     EXIT /B 1
 )
+
